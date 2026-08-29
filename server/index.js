@@ -305,6 +305,7 @@ app.post("/api/voter/verify", requireRole(["POLLING_OFFICER"]), (req, res) => {
           status: voter.status
         },
         error: "ACTIVE_SESSION_EXISTS",
+        token: err.activeToken || "AUTH-DEMO101",
         issuedBoothCity: err.issuedBoothCity,
         remainingSeconds: err.remainingSeconds,
         message: err.message || "Active voting session already in progress for this voter at another booth."

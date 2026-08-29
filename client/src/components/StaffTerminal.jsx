@@ -398,7 +398,7 @@ export default function StaffTerminal({
 
           {/* CASE E: Simultaneous Session Exists */}
           {(verificationResult.code === "ACTIVE_SESSION_EXISTS" || verificationResult.status === "ACTIVE_SESSION_EXISTS") && (
-            <div className="status-box-warn space-y-2">
+            <div className="status-box-warn space-y-3">
               <div className="flex items-center gap-2 font-bold text-sm">
                 <Clock className="w-5 h-5 text-[#8A6100]" />
                 <span className="uppercase tracking-wider">ACTIVE_SESSION_EXISTS</span>
@@ -406,6 +406,27 @@ export default function StaffTerminal({
               <p className="text-xs text-[#1A2233] font-medium">
                 {verificationResult.message || t.staffTerminal.activeSessionDesc}
               </p>
+              <div className="flex flex-wrap items-center gap-2 pt-1">
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (onProceedToVoting) onProceedToVoting();
+                  }}
+                  className="btn-saffron text-xs font-bold flex items-center gap-1.5 cursor-pointer"
+                >
+                  <span>{currentLanguage === "gu" ? "મતદાન બૂથ પર આગળ વધો" : currentLanguage === "hi" ? "मतदान बूथ पर आगे बढ़ें" : "Proceed to Voting Booth"}</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+                {onOpenResetModal && (
+                  <button
+                    type="button"
+                    onClick={onOpenResetModal}
+                    className="btn-outline-navy text-xs h-8 min-h-0 py-1"
+                  >
+                    {currentLanguage === "gu" ? "સેશન રીસેટ કરો" : "Reset Session"}
+                  </button>
+                )}
+              </div>
             </div>
           )}
 

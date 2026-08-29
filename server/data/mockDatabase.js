@@ -77,9 +77,22 @@ class MockDatabase {
     if (voter.status === "SESSION_ACTIVE" && voter.tokenExpiresAt) {
       const expiresAtDate = new Date(voter.tokenExpiresAt);
       if (now < expiresAtDate) {
+        // If verifying at the same booth, return the active session token so the voter directly enters voting booth
+        if (voter.issuedBoothCity === boothCity && voter.activePlainToken) {
+          const remainingSec = Math.max(1, Math.round((expiresAtDate.getTime() - now.getTime()) / 1000));
+          return {
+            token: voter.activePlainToken,
+            issuedAt: voter.tokenIssuedAt || new Date().toISOString(),
+            expiresAt: voter.tokenExpiresAt,
+            boothCity,
+            validSeconds: remainingSec
+          };
+        }
+
         const remainingSec = Math.max(1, Math.round((expiresAtDate.getTime() - now.getTime()) / 1000));
         const err = new Error(`ACTIVE_SESSION_EXISTS`);
         err.code = "ACTIVE_SESSION_EXISTS";
+        err.activeToken = voter.activePlainToken || "AUTH-ACTIVE-SESSION";
         err.issuedBoothCity = voter.issuedBoothCity || "another booth";
         err.remainingSeconds = remainingSec;
         err.message = `Active voting session already in progress for this voter at ${voter.issuedBoothCity || 'another booth'} (${remainingSec}s remaining). Only one active authorization token is allowed across all booths statewide.`;
@@ -88,6 +101,7 @@ class MockDatabase {
         // Expired active session: auto-revert to NOT_VOTED
         voter.status = "NOT_VOTED";
         voter.activeTokenHash = null;
+        voter.activePlainToken = null;
         voter.tokenExpiresAt = null;
         voter.issuedBoothCity = null;
         voter.issuedBoothId = null;
@@ -107,7 +121,9 @@ class MockDatabase {
     // Update state machine: NOT_VOTED -> SESSION_ACTIVE
     voter.status = "SESSION_ACTIVE";
     voter.activeTokenHash = tokenHash;
+    voter.activePlainToken = tokenString;
     voter.tokenExpiresAt = expiresAt;
+    voter.tokenIssuedAt = now.toISOString();
     voter.issuedBoothCity = boothCity;
     voter.issuedBoothId = boothId;
 

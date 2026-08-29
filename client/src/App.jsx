@@ -288,12 +288,16 @@ export default function App() {
       setVerificationResult(data);
 
       if (data.success && data.status === "ELIGIBLE_TOKEN_ISSUED") {
-        setCurrentStep(3);
-        setActiveToken(data.token.token);
-        setTokenTimeLeft(data.token.validSeconds || 300);
+        setActiveToken(data.token?.token || data.token);
+        setTokenTimeLeft(data.token?.validSeconds || 300);
+        setCurrentStep(4); // Advance directly to Citizen Voting Booth
         playVoice("token_issued", data.voter);
       } else if (data.status === "ACTIVE_SESSION_EXISTS") {
-        setCurrentStep(2);
+        const activeTok = data.token?.token || data.token || activeToken || "AUTH-DEMO101";
+        setActiveToken(activeTok);
+        setTokenTimeLeft(data.remainingSeconds || 300);
+        setCurrentStep(4); // Advance directly to Citizen Voting Booth
+        playVoice("token_issued", data.voter);
       } else if (data.status === "ALREADY_VOTED") {
         setCurrentStep(2);
         playVoice("already_voted", data.voter);
