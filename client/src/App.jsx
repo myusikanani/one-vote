@@ -290,13 +290,13 @@ export default function App() {
       if (data.success && data.status === "ELIGIBLE_TOKEN_ISSUED") {
         setActiveToken(data.token?.token || data.token);
         setTokenTimeLeft(data.token?.validSeconds || 300);
-        setCurrentStep(4); // Advance directly to Citizen Voting Booth
+        setCurrentStep(2);
         playVoice("token_issued", data.voter);
       } else if (data.status === "ACTIVE_SESSION_EXISTS") {
         const activeTok = data.token?.token || data.token || activeToken || "AUTH-DEMO101";
         setActiveToken(activeTok);
         setTokenTimeLeft(data.remainingSeconds || 300);
-        setCurrentStep(4); // Advance directly to Citizen Voting Booth
+        setCurrentStep(2);
         playVoice("token_issued", data.voter);
       } else if (data.status === "ALREADY_VOTED") {
         setCurrentStep(2);
