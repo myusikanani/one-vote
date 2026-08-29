@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+:root {
+  --blue-deep: #0B3B6F;
+  --blue-mid: #134A8A;
+  --blue-pale: #EAF1FB;
+  --saffron: #FF9933;
+  --saffron-dark: #E07F1A;
+  --green: #128807;
+  --danger: #C62828;
+  --warn: #8A6100;
+  --warn-bg: #FFF6E0;
+  --bg: #F4F6F9;
+  --ink: #1A2233;
+  --ink-soft: #4C5768;
+  --line: #D9E0EA;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: 'Noto Sans', 'Noto Sans Gujarati', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Monospace font for identifiers, tokens, hashes, VVPAT slips */
+.font-mono, code, pre {
+  font-family: 'Roboto Mono', monospace, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas;
+}
+
+/* Base Government UI Components */
+.gov-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.gov-card-header {
+  border-bottom: 1px solid var(--line);
+  padding: 14px 20px;
+}
+
+.gov-card-body {
+  padding: 20px;
+}
+
+/* Tricolor Indian Flag Bar (4px tall) */
+.gov-tricolor-bar {
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(to right, #FF9933 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #128807 66.66%);
+}
+
+/* Buttons */
+.btn-saffron {
+  background-color: var(--saffron);
+  color: #FFFFFF;
+  border: 1px solid var(--saffron-dark);
+  border-radius: 5px;
+  font-weight: 700;
+  min-height: 44px;
+  padding: 0 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn-saffron:hover:not(:disabled) {
+  background-color: var(--saffron-dark);
+}
+
+.btn-saffron:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-outline-navy {
+  background-color: #FFFFFF;
+  color: var(--blue-deep);
+  border: 1px solid var(--blue-deep);
+  border-radius: 5px;
+  font-weight: 700;
+  min-height: 44px;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn-outline-navy:hover:not(:disabled) {
+  background-color: var(--blue-pale);
+}
+
+.btn-danger {
+  background-color: var(--danger);
+  color: #FFFFFF;
+  border: 1px solid #9E1C1C;
+  border-radius: 5px;
+  font-weight: 700;
+  min-height: 44px;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background-color: #A31B1B;
+}
+
+/* Status Alert Boxes */
+.status-box-success {
+  background-color: #EBF7EB;
+  border: 1px solid #B8E4B6;
+  color: var(--green);
+  border-radius: 5px;
+  padding: 14px 18px;
+}
+
+.status-box-danger {
+  background-color: #FDECEC;
+  border: 1px solid #F5B5B5;
+  color: var(--danger);
+  border-radius: 5px;
+  padding: 14px 18px;
+}
+
+.status-box-warn {
+  background-color: var(--warn-bg);
+  border: 1px solid #F2DC9B;
+  color: var(--warn);
+  border-radius: 5px;
+  padding: 14px 18px;
+}
+
+.status-box-info {
+  background-color: var(--blue-pale);
+  border: 1px solid #BED4F3;
+  color: var(--blue-deep);
+  border-radius: 5px;
+  padding: 14px 18px;
+}
+
+/* Standard plain-bordered Government Table */
+.gov-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--line);
+}
+
+.gov-table th {
+  background-color: #F4F7FA;
+  color: var(--ink-soft);
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--line);
+}
+
+.gov-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.gov-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Tags and Badges */
+.gov-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.gov-tag-blue {
+  background-color: var(--blue-pale);
+  color: var(--blue-deep);
+  border: 1px solid #BED4F3;
+}
+
+.gov-tag-green {
+  background-color: #EBF7EB;
+  color: var(--green);
+  border: 1px solid #B8E4B6;
+}
+
+.gov-tag-red {
+  background-color: #FDECEC;
+  color: var(--danger);
+  border: 1px solid #F5B5B5;
+}
+
+.gov-tag-amber {
+  background-color: var(--warn-bg);
+  color: var(--warn);
+  border: 1px solid #F2DC9B;
+}
+
+/* VVPAT Printed Slip */
+.vvpat-paper-slip {
+  background-color: #FFFDF5;
+  color: #111827;
+  border: 1px dashed #9CA3AF;
+  border-radius: 3px;
+  padding: 16px;
+  font-family: 'Roboto Mono', monospace;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+}

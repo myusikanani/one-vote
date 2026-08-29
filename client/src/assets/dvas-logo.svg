@@ -1,0 +1,56 @@
+<svg viewBox="0 0 450 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#0B3B6F" />
+      <stop offset="100%" stopColor="#062140" />
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FB923C" />
+      <stop offset="100%" stopColor="#EA580C" />
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#4ADE80" />
+      <stop offset="100%" stopColor="#16A34A" />
+    </linearGradient>
+    <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#94A3B8" />
+      <stop offset="100%" stopColor="#64748B" />
+    </linearGradient>
+  </defs>
+
+  <!-- EMBLEM -->
+  <g transform="translate(10, 10)">
+    <!-- Shield Outer -->
+    <path d="M25 45 L25 80 C25 105 65 125 65 125 C65 125 105 105 105 80 L105 45 Z" fill="url(#shieldGrad)" />
+    <!-- Shield Inner White -->
+    <path d="M33 50 L33 76 C33 96 65 113 65 113 C65 113 97 96 97 76 L97 50 Z" fill="#FFFFFF" />
+    <!-- Silver Fold -->
+    <path d="M25 45 L42 45 L32 72 L25 67 Z" fill="url(#silverGrad)" />
+    <!-- 'D' Center Shape -->
+    <path d="M40 54 L65 54 C80 54 88 62 88 72 C88 82 80 90 65 90 L40 90 Z M52 64 L52 80 L64 80 C72 80 76 76 76 72 C76 67 72 64 64 64 Z" fill="#0B3B6F" />
+    
+    <!-- Orange Figure -->
+    <circle cx="63" cy="22" r="8" fill="url(#orangeGrad)" />
+    <path d="M44 32 C50 38 56 44 63 46 C70 44 76 38 82 32 C75 28 70 35 63 36 C56 35 51 28 44 32 Z" fill="url(#orangeGrad)" />
+    
+    <!-- Green Figure -->
+    <circle cx="92" cy="34" r="6.5" fill="url(#greenGrad)" />
+    <path d="M76 46 C81 50 87 54 93 55 C98 52 102 48 107 43 C102 40 98 46 93 47 C88 46 84 41 76 46 Z" fill="url(#greenGrad)" />
+  </g>
+
+  <!-- TEXT SECTION -->
+  <g transform="translate(140, 20)">
+    <!-- Main DVAS Title + Accent Line -->
+    <text x="0" y="38" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="44" fill="#0B3B6F" letter-spacing="-1">DVAS</text>
+    <line x1="140" y1="26" x2="300" y2="26" stroke="#0B3B6F" stroke-width="4" stroke-linecap="round" />
+
+    <!-- Subtitle 1 -->
+    <text x="0" y="70" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="20" fill="#0B3B6F">One Voter ID, Anywhere Voting</text>
+
+    <!-- Dividing Line -->
+    <line x1="0" y1="84" x2="295" y2="84" stroke="#CBD5E1" stroke-width="1.5" />
+
+    <!-- Subtitle 2 -->
+    <text x="0" y="105" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="16" fill="#475569">Vote Anywhere, Vote Only Once</text>
+  </g>
+</svg>
