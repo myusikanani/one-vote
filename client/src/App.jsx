@@ -764,11 +764,13 @@ export default function App() {
       <AnomalyDetectorModal
         isOpen={isAnomalyModalOpen}
         onClose={() => setIsAnomalyModalOpen(false)}
+        currentLanguage={currentLanguage}
       />
 
       <PrivacyArchitectureModal
         isOpen={isPrivacyModalOpen}
         onClose={() => setIsPrivacyModalOpen(false)}
+        currentLanguage={currentLanguage}
       />
     </div>
   );

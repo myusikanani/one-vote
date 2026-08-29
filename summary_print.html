@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DVAS — One Voter ID, Anywhere Voting Project Summary</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 18mm 20mm 15mm 20mm;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1a202c;
+      background: #ffffff;
+      line-height: 1.45;
+      font-size: 13.5px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 14px;
+    }
+    .header h1 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #0b3b6f;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+    }
+    .header .subtitle {
+      font-size: 13px;
+      font-weight: 600;
+      color: #4a5568;
+    }
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 14px;
+      font-size: 12.5px;
+    }
+    .info-table td {
+      padding: 6px 10px;
+      border: 1px solid #e2e8f0;
+    }
+    .info-table td.label {
+      font-weight: 700;
+      color: #2d3748;
+      width: 28%;
+      background-color: #f8fafc;
+    }
+    .info-table td.value {
+      color: #1a202c;
+    }
+    .section-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: #0b3b6f;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .section-title .word-count {
+      font-size: 11px;
+      font-weight: 600;
+      color: #718096;
+    }
+    .box {
+      background: #ffffff;
+      border-left: 3.5px solid #0b3b6f;
+      border-top: 1px solid #e2e8f0;
+      border-right: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 8px 12px;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 14px;
+      font-size: 12.5px;
+    }
+    .box.problem {
+      border-left-color: #d97706;
+      background: #fffbeb;
+    }
+    .box.solution {
+      border-left-color: #0b3b6f;
+      background: #f0f7ff;
+    }
+    .summary-text {
+      font-size: 12.5px;
+      color: #2d3748;
+      text-align: justify;
+      line-height: 1.5;
+    }
+    .summary-text p {
+      margin-bottom: 8px;
+    }
+    .summary-text p:last-child {
+      margin-bottom: 0;
+    }
+    .footer-disclaimer {
+      margin-top: 14px;
+      padding-top: 8px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 10.5px;
+      color: #718096;
+      text-align: center;
+    }
+    .footer-page {
+      margin-top: 6px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: #a0aec0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>DVAS — One Voter ID, Anywhere Voting</h1>
+    <div class="subtitle">Project Summary</div>
+  </div>
+
+  <table class="info-table">
+    <tr>
+      <td class="label">Project Name</td>
+      <td class="value">DVAS — One Voter ID, Anywhere Voting</td>
+    </tr>
+    <tr>
+      <td class="label">Submitted By</td>
+      <td class="value">Kanani Myusi Udaybhai</td>
+    </tr>
+    <tr>
+      <td class="label">Project Guide</td>
+      <td class="value">Dr. Shruti Suman</td>
+    </tr>
+  </table>
+
+  <div class="section-title">Problem Statement</div>
+  <div class="box problem">
+    Eligible voters who are away from their registered polling location may miss voting, while allowing access from another location without synchronized status can create a risk of duplicate voting.
+  </div>
+
+  <div class="section-title">Solution in One Line</div>
+  <div class="box solution">
+    DVAS verifies synthetic voter eligibility and central voting status, creates a short-lived one-time authorization, blocks repeat attempts across demo locations, and keeps voter identity separate from anonymous vote records.
+  </div>
+
+  <div class="section-title">
+    <span>Project Summary</span>
+    <span class="word-count">Word Count: 232 words</span>
+  </div>
+
+  <div class="summary-text">
+    <p>
+      One Voter ID—Anywhere Voting improves electoral access while protecting security and privacy. Eligible voters may be away from their registered polling location on election day because of work, education, or travel. Our prototype demonstrates how an authorized location verifies synthetic voter identity, confirms eligibility, and checks central status before allowing one voting session.
+    </p>
+    <p>
+      When a voter is eligible and marked NOT_VOTED, the system issues a single-use session. Once voting is completed, status changes immediately to VOTED. If the same voter ID is attempted from another demo location, such as Surat after Ahmedabad, the system blocks the second attempt, preventing duplicate voting.
+    </p>
+    <p>
+      The project does not replace certified EVMs; the simulated voting screen exists only to demonstrate the end-to-end journey without connecting to live electoral infrastructure. Privacy is protected through decoupled data separation: the Voter Status Ledger stores synthetic identity and voting status, while the Anonymous Vote Vault records candidate selections with zero voter linkage.
+    </p>
+    <p>
+      Multilingual voice guidance in Gujarati, Hindi, and English ensures accessibility for first-time and elderly voters. Built-in AI tools provide staff guidance and real-time anomaly alerts without accessing ballot choices, delivering a secure, inclusive, and practical civic prototype.
+    </p>
+  </div>
+
+  <div class="footer-disclaimer">
+    Synthetic Data Demonstration — Not connected to live government systems, Aadhaar, EPIC, or certified EVMs.
+  </div>
+
+  <div class="footer-page">
+    <span>DVAS — One Voter ID, Anywhere Voting</span>
+    <span>Page 1 of 1</span>
+  </div>
+
+</body>
+</html>
